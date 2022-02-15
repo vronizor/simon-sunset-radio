@@ -13,7 +13,6 @@ That's until I decided to take matters in my own hands and build my own *Sunset 
 library(xml2)
 library(rvest)
 library(stringr)
-library(data.table)
 options(timeout=10000) # increase download timeout
 ```
 
@@ -100,7 +99,7 @@ file_name = str_glue("{year}-{month}-{day}_simon-sunset.mp3")
 
 # create "shows" directory if missing 
 if(!dir.exists("shows")) {dir.create("shows")}
-download.file(test_url, destfile = file.path(file_name), mode = "wb")
+download.file(test_url, destfile = file.path("shows", file_name), mode = "wb")
 ```
 
 It worked! In next post, we'll see how far back in time we can go using some date-time packages for R.
